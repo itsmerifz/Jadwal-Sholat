@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+.img{
+    background-image: url(img/cover.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.img::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    bottom: 0;
+    z-index: 1;
+}
+
+.container,.navbar{
+    position: relative;
+    z-index: 4;
+}
+
+.judul h1{
+    font-size: 4rem;
+    font-weight: 600;
+    color: azure;
+}
+
+.judul h3{
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: antiquewhite;
+    text-transform: uppercase;
+}
+
+.waktu h2{
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: azure;
+}
+.waktu h3{
+    font-size: 2rem;
+    font-weight: 300;
+    color: azure;
+}

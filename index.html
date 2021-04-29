@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Jadwal Sholat v2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="img">
+        <nav class="navbar navbar-light">
+            <form class="form-inline mx-auto my-2" name="namaKota">
+            <input id="kota" class="form-control mr-sm-2" type="text" placeholder="mis. Surabaya">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="button" onclick="cariKota()">Cari Kota</button>
+            </form>
+        </nav>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 my-5 judul">
+                    <h1>WAKTU SHOLAT V2</h1>
+                    <h3 id="nama-kota"></h3>
+                </div>
+            </div>
+            <div class="row waktu text-center my-4">
+              <div class="col-4 border-right">
+                <h3>Imsak</h3>
+                <h2 id="imsak"></h2>
+              </div>
+              <div class="col-4 border-right">
+                <h3>Subuh</h3>
+                <h2 id="subuh"></h2>
+              </div>
+              <div class="col-4">
+                <h3>Dzuhur</h3>
+                <h2 id="dzuhur"></h2>
+              </div>
+              <div class="col-4 my-5 border-right">
+                <h3>Ashar</h3>
+                <h2 id="ashar"></h2>
+              </div>
+              <div class="col-4 my-5 border-right">
+                <h3>Maghrib</h3>
+                <h2 id="maghrib"></h2>
+              </div>
+              <div class="col-4 my-5">
+                <h3>Isya</h3>
+                <h2 id="isya"></h2>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
