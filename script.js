@@ -31,6 +31,10 @@ function waktuSholat(kota, tahun, bulan) {
 
       $('#waktu-shalat').fadeIn();
       $('#nama-kota').fadeIn();
+    })
+    .catch((error) => {
+      alert("Kota tidak ditemukan");
+      console.log(error);
     });
 }
 
