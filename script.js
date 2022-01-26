@@ -40,7 +40,7 @@ function waktuSholat(kota, tahun, bulan) {
 
 function cariKota() {
   try{
-    const kota = document.getElementById("kota").value.toLowerCase();
+    const kota = document.getElementById("kota").value.toLowerCase().split(" ").join("");
     localStorage.setItem("kota", kota);
     let t = new Date().getFullYear();
     let b = `${new Date().getMonth() + 1}`.padStart(2, "0");
@@ -50,9 +50,6 @@ function cariKota() {
         break;
       case "jakarta":
         waktuSholat("jakartapusat", t, b);
-        break;
-      case "bandar lampung":
-        waktuSholat("bandarlampung", t, b);
         break;
     }
 
