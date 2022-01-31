@@ -45,14 +45,15 @@ function cariKota() {
 }
 
 function resetData(){
-  document.getElementById("kota").value = "";
-  document.getElementById("nama-kota").innerHTML = "";
-  document.getElementById("imsak").innerHTML = "";
-  document.getElementById("subuh").innerHTML = "";
-  document.getElementById("dzuhur").innerHTML = "";
-  document.getElementById("ashar").innerHTML = "";
-  document.getElementById("maghrib").innerHTML = "";
-  document.getElementById("isya").innerHTML = "";
+  $('#kota').val('');
+  $('#nama-kota').html('');
+  $('#imsak').html('');
+  $('#subuh').html('');
+  $('#dzuhur').html('');
+  $('#ashar').html('');
+  $('#maghrib').html('');
+  $('#isya').html('');
+
   $('#waktu-shalat').fadeOut(); 
   $('#nama-kota').fadeOut(); 
 }
