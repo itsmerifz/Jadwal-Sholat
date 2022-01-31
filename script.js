@@ -1,6 +1,6 @@
 function waktuSholat(kota, tahun, bulan) {
   fetch(
-    `https://cdn.statically.io/gh/lakuapik/jadwalsholatorg/master/adzan/${kota}/${tahun}/${bulan}.json`
+    `http://api.aladhan.com/v1/calendarByAddress?address=${kota}&method=2&month=${bulan}&year=${tahun}`
   )
     .then((respon) => respon.json())
     .then(function (respon) {
@@ -12,16 +12,16 @@ function waktuSholat(kota, tahun, bulan) {
       let y = document.getElementById("isya");
       let waktu = new Date();
       let tanggal = waktu.getDate() - 1;
-      let data = respon[tanggal];
-      let subuh = data.shubuh;
-      let imsak = data.imsyak;
-      let dzuhur = data.dzuhur;
-      let ashar = data.ashr;
-      let maghrib = data.magrib;
-      let isya = data.isya;
+      let data = respon.data[tanggal];
+      let subuh = data.timings.Fajr;
+      let imsak = data.timings.Imsak;
+      let dzuhur = data.timings.Dhuhr;
+      let ashar = data.timings.Asr;
+      let maghrib = data.timings.Maghrib;
+      let isya = data.timings.Isha;
 
       const kota = document.getElementById("nama-kota");
-      kota.innerHTML = "Kota " + document.getElementById("kota").value;
+      kota.innerHTML = document.getElementById("kota").value;
       i.innerHTML = imsak;
       s.innerHTML = subuh;
       z.innerHTML = dzuhur;
@@ -41,17 +41,8 @@ function waktuSholat(kota, tahun, bulan) {
 function cariKota() {
   try{
     const kota = document.getElementById("kota").value.toLowerCase().split(" ").join("");
-    localStorage.setItem("kota", kota);
     let t = new Date().getFullYear();
     let b = `${new Date().getMonth() + 1}`.padStart(2, "0");
-    switch(kota){
-      case "manado":
-        waktuSholat("menado", t, b);
-        break;
-      case "jakarta":
-        waktuSholat("jakartapusat", t, b);
-        break;
-    }
 
     waktuSholat(kota, t, b);
   }catch(e){
@@ -68,7 +59,6 @@ function resetData(){
   document.getElementById("ashar").innerHTML = "";
   document.getElementById("maghrib").innerHTML = "";
   document.getElementById("isya").innerHTML = "";
-  localStorage.removeItem("kota");
   $('#waktu-shalat').fadeOut(); 
   $('#nama-kota').fadeOut(); 
 }
@@ -76,3 +66,18 @@ function resetData(){
 $('#waktu-shalat').ready(() => {
   $('#waktu-shalat').hide();
 })
+
+
+
+function updateDate() { 
+  let init = moment().locale("id");
+  $('#date-now').ready(() => {
+    $('#date-now').html(init.format("dddd, D MMMM YYYY"))
+    $('#time-now').text(init.format("HH:mm:ss"))
+  });
+  setTimeout(() => {
+    updateDate();
+  },1000)
+}
+
+updateDate()
