@@ -1,6 +1,6 @@
 function waktuSholat(kota, tahun, bulan) {
   fetch(
-    `http://api.aladhan.com/v1/calendarByAddress?address=${kota}&method=2&month=${bulan}&year=${tahun}`
+    `https://api.aladhan.com/v1/calendarByAddress?address=${kota}&method=2&month=${bulan}&year=${tahun}`
   )
     .then((respon) => respon.json())
     .then(function (respon) {
