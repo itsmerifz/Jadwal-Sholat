@@ -4,14 +4,9 @@ function waktuSholat(kota, tahun, bulan) {
   )
     .then((respon) => respon.json())
     .then(function (respon) {
-      let i = document.getElementById("imsak");
-      let s = document.getElementById("subuh");
-      let z = document.getElementById("dzuhur");
-      let a = document.getElementById("ashar");
-      let m = document.getElementById("maghrib");
-      let y = document.getElementById("isya");
-      let waktu = new Date();
-      let tanggal = waktu.getDate() - 1;
+      const initWaktu = moment().locale("id");
+      let tanggal = initWaktu.format("Do") - 1;
+      
       let data = respon.data[tanggal];
       let subuh = data.timings.Fajr;
       let imsak = data.timings.Imsak;
@@ -20,14 +15,14 @@ function waktuSholat(kota, tahun, bulan) {
       let maghrib = data.timings.Maghrib;
       let isya = data.timings.Isha;
 
-      const kota = document.getElementById("nama-kota");
-      kota.innerHTML = document.getElementById("kota").value;
-      i.innerHTML = imsak;
-      s.innerHTML = subuh;
-      z.innerHTML = dzuhur;
-      a.innerHTML = ashar;
-      m.innerHTML = maghrib;
-      y.innerHTML = isya;
+      $('#nama-kota').html($('#kota').val());
+
+      $('#imsak').html(imsak);
+      $('#subuh').html(subuh);
+      $('#dzuhur').html(dzuhur);
+      $('#ashar').html(ashar);
+      $('#maghrib').html(maghrib);
+      $('#isya').html(isya);
 
       $('#waktu-shalat').fadeIn();
       $('#nama-kota').fadeIn();
