@@ -64,7 +64,7 @@ $("#waktu-shalat").ready(() => {
 
 function updateDate() {
   $("#date-now").html(initDate.format("dddd, D MMMM YYYY"));
-  $("#time-now").html(moment().format("HH:mm:ss"));
+  $("#time-now").html(moment().format("HH : mm : ss"));
   setTimeout(() => {
     updateDate();
   }, 1000);
