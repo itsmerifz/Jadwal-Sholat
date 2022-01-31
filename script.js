@@ -14,17 +14,17 @@ function waktuSholat(kota, tahun, bulan) {
       let maghrib = data.timings.Maghrib;
       let isya = data.timings.Isha;
 
-      $('#nama-kota').html($('#kota').val());
+      $("#nama-kota").html($("#kota").val());
 
-      $('#imsak').html(imsak);
-      $('#subuh').html(subuh);
-      $('#dzuhur').html(dzuhur);
-      $('#ashar').html(ashar);
-      $('#maghrib').html(maghrib);
-      $('#isya').html(isya);
+      $("#imsak").html(imsak);
+      $("#subuh").html(subuh);
+      $("#dzuhur").html(dzuhur);
+      $("#ashar").html(ashar);
+      $("#maghrib").html(maghrib);
+      $("#isya").html(isya);
 
-      $('#waktu-shalat').fadeIn();
-      $('#nama-kota').fadeIn();
+      $("#waktu-shalat").fadeIn();
+      $("#nama-kota").fadeIn();
     })
     .catch((error) => {
       alert("Kota tidak ditemukan");
@@ -33,46 +33,42 @@ function waktuSholat(kota, tahun, bulan) {
 }
 
 function cariKota() {
-  try{
-    let kota = $('#kota').val().toLowerCase().split(" ").join("");
+  try {
+    let kota = $("#kota").val().toLowerCase().split(" ").join("");
     let t = initDate.format("YYYY");
     let b = initDate.format("MM");
 
     waktuSholat(kota, t, b);
-  }catch(e){
+  } catch (e) {
     alert("Kota tidak ditemukan");
   }
 }
 
-function resetData(){
-  $('#kota').val('');
-  $('#nama-kota').html('');
-  $('#imsak').html('');
-  $('#subuh').html('');
-  $('#dzuhur').html('');
-  $('#ashar').html('');
-  $('#maghrib').html('');
-  $('#isya').html('');
+function resetData() {
+  $("#kota").val("");
+  $("#nama-kota").html("");
+  $("#imsak").html("");
+  $("#subuh").html("");
+  $("#dzuhur").html("");
+  $("#ashar").html("");
+  $("#maghrib").html("");
+  $("#isya").html("");
 
-  $('#waktu-shalat').fadeOut(); 
-  $('#nama-kota').fadeOut(); 
+  $("#waktu-shalat").fadeOut();
+  $("#nama-kota").fadeOut();
 }
 
-$('#waktu-shalat').ready(() => {
-  $('#waktu-shalat').hide();
-})
+$("#waktu-shalat").ready(() => {
+  $("#waktu-shalat").hide();
+});
 
-
-
-function updateDate() { 
-  $('#date-now').ready(() => {
-    $('#date-now').html(initDate.format("dddd, D MMMM YYYY"))
-    $('#time-now').text(initDate.format("HH:mm:ss"))
-  });
+function updateDate() {
+  $("#date-now").html(initDate.format("dddd, D MMMM YYYY"));
+  $("#time-now").html(moment().format("HH:mm:ss"));
   setTimeout(() => {
     updateDate();
-  },1000)
+  }, 1000);
 }
 
 const initDate = moment().locale("id");
-updateDate()
+updateDate();
