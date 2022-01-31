@@ -3,10 +3,10 @@ function waktuSholat(kota, tahun, bulan) {
     `https://api.aladhan.com/v1/calendarByAddress?address=${kota}&method=2&month=${bulan}&year=${tahun}`
   )
     .then((respon) => respon.json())
-    .then(function (respon) {
+    .then((hsl) => {
       let tanggal = initDate.format("Do") - 1;
 
-      let data = respon.data[tanggal];
+      let data = hsl.data[tanggal];
       let subuh = data.timings.Fajr;
       let imsak = data.timings.Imsak;
       let dzuhur = data.timings.Dhuhr;
