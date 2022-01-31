@@ -4,9 +4,8 @@ function waktuSholat(kota, tahun, bulan) {
   )
     .then((respon) => respon.json())
     .then(function (respon) {
-      const initWaktu = moment().locale("id");
-      let tanggal = initWaktu.format("Do") - 1;
-      
+      let tanggal = initDate.format("Do") - 1;
+
       let data = respon.data[tanggal];
       let subuh = data.timings.Fajr;
       let imsak = data.timings.Imsak;
@@ -35,9 +34,9 @@ function waktuSholat(kota, tahun, bulan) {
 
 function cariKota() {
   try{
-    const kota = document.getElementById("kota").value.toLowerCase().split(" ").join("");
-    let t = new Date().getFullYear();
-    let b = `${new Date().getMonth() + 1}`.padStart(2, "0");
+    let kota = $('#kota').val().toLowerCase().split(" ").join("");
+    let t = initDate.format("YYYY");
+    let b = initDate.format("MM");
 
     waktuSholat(kota, t, b);
   }catch(e){
@@ -65,14 +64,14 @@ $('#waktu-shalat').ready(() => {
 
 
 function updateDate() { 
-  let init = moment().locale("id");
   $('#date-now').ready(() => {
-    $('#date-now').html(init.format("dddd, D MMMM YYYY"))
-    $('#time-now').text(init.format("HH:mm:ss"))
+    $('#date-now').html(initDate.format("dddd, D MMMM YYYY"))
+    $('#time-now').text(initDate.format("HH:mm:ss"))
   });
   setTimeout(() => {
     updateDate();
   },1000)
 }
 
+const initDate = moment().locale("id");
 updateDate()
