@@ -70,5 +70,5 @@ function updateDate() {
   }, 1000);
 }
 
-const initDate = moment().locale("id");
+const initDate = moment().locale(`${Intl.NumberFormat().resolvedOptions().locale}`);
 updateDate();
